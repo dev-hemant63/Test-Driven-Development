@@ -16,6 +16,6 @@ namespace TEST.API
         {
             Class1 obj = new Class1();
             int res = obj.divide(9, 0);
-        }
+        } 
     }
 }
