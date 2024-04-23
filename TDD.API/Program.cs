@@ -1,3 +1,7 @@
+using Persistence;
+using Repository.Interfaces;
+using Repository.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +11,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IContext, Context>();
+builder.Services.AddScoped<IStudent, Student>();
+
+DBConnection.ConnectionString = builder.Configuration.GetConnectionString("SqlConnection");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
